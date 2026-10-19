@@ -4,20 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Mohammad Aeman bin Muzaldi, Computer Science (Network Computing) student at UNIMAS, specialising in networking, telecommunications and IT infrastructure.">
-    <meta name="author" content="Mohammad Aeman bin Muzaldi">
 
-    <title>Mohammad Aeman Muzaldi | IT & Network Computing</title>
+    <title>Mohammad Aeman bin Muzaldi | Portfolio</title>
+
+    <meta name="description"
+          content="Personal portfolio of Mohammad Aeman bin Muzaldi, a Computer Science (Network Computing) student at UNIMAS with experience in networking, telecommunications, broadcast systems, and multimedia.">
 
     <style>
         :root {
-            --bg: #0b0b0b;
-            --surface: #151515;
-            --surface-light: #1c1c1c;
-            --text: #f4f1eb;
-            --muted: #aaa69f;
-            --accent: #c8aa80;
-            --border: #30302e;
+            --bg: #101010;
+            --surface: #191919;
+            --surface-light: #222222;
+            --text: #f5f1e9;
+            --muted: #b5afa4;
+            --accent: #c8ad83;
+            --border: #34312c;
         }
 
         * {
@@ -28,9 +29,9 @@
         }
 
         body {
+            font-family: Arial, Helvetica, sans-serif;
             background: var(--bg);
             color: var(--text);
-            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.7;
         }
 
@@ -39,330 +40,586 @@
             text-decoration: none;
         }
 
+        img {
+            max-width: 100%;
+        }
+
         .container {
-            width: min(1100px, 90%);
-            margin: auto;
-        }
-
-        section {
-            padding: 85px 0;
-            scroll-margin-top: 75px;
-        }
-
-        .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            margin-bottom: 12px;
-        }
-
-        .section-intro {
-            color: var(--muted);
-            max-width: 700px;
-            margin-bottom: 35px;
+            width: min(1120px, 90%);
+            margin: 0 auto;
         }
 
         .accent {
             color: var(--accent);
         }
 
-        .eyebrow {
-            color: var(--accent);
-            font-size: .8rem;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            margin-bottom: 18px;
+        .section {
+            padding: 100px 0;
+            scroll-margin-top: 80px;
         }
 
-        /* Navigation */
+        .section:nth-of-type(even) {
+            background: #141414;
+        }
+
+        .section-heading {
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            margin-top: 8px;
+            line-height: 1.25;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            margin-top: 12px;
+            max-width: 650px;
+        }
+
+        /* NAVIGATION */
+
         header {
             position: sticky;
             top: 0;
-            z-index: 10;
-            background: rgba(11, 11, 11, .96);
+            z-index: 1000;
+            background: rgba(16, 16, 16, 0.96);
             border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
         }
 
-        nav {
-            min-height: 72px;
+        .navbar {
+            min-height: 76px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            align-items: center;
+            gap: 25px;
         }
 
         .logo {
             font-weight: bold;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
+            font-size: 18px;
+            letter-spacing: 1px;
             white-space: nowrap;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-size: .88rem;
-        }
-
-        .nav-links a:hover,
-        .text-link:hover {
+        .logo span {
             color: var(--accent);
         }
 
-        /* Hero */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        nav a {
+            color: var(--muted);
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* HERO */
+
         #home {
-            min-height: 82vh;
+            min-height: 86vh;
             display: flex;
             align-items: center;
+            padding: 75px 0;
+        }
+
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 65px;
         }
 
         .hero-content {
-            max-width: 850px;
+            flex: 1;
         }
 
-        h1 {
-            font-size: clamp(2.5rem, 7vw, 5rem);
-            line-height: 1.12;
-            margin-bottom: 22px;
-        }
-
-        .hero-subtitle {
+        .hero-label {
             color: var(--accent);
-            font-size: clamp(.95rem, 2vw, 1.1rem);
-            margin-bottom: 22px;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
-        .hero-description {
+        .hero-content h1 {
+            font-size: clamp(38px, 6vw, 68px);
+            line-height: 1.12;
+            margin: 22px 0;
+            letter-spacing: -2px;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content h2 {
             color: var(--muted);
-            font-size: 1.05rem;
-            max-width: 720px;
+            font-size: clamp(17px, 2.5vw, 23px);
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            color: var(--muted);
+            max-width: 600px;
             margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
         }
 
         .button {
             display: inline-block;
-            padding: 11px 22px;
+            padding: 12px 22px;
             border: 1px solid var(--accent);
             border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: #17130e;
+        }
+
+        .button-primary:hover {
+            background: #dfc7a2;
+        }
+
+        .button-outline {
             color: var(--accent);
-            margin: 0 8px 8px 0;
-            transition: .25s;
         }
 
-        .button.primary {
+        .button-outline:hover {
             background: var(--accent);
-            color: #111;
+            color: #17130e;
         }
 
-        .button:hover {
-            background: var(--accent);
-            color: #111;
+        .hero-photo {
+            flex: 0 0 300px;
+            width: 300px;
+            height: 370px;
+            overflow: hidden;
+            border: 1px solid var(--accent);
+            border-radius: 150px 150px 12px 12px;
+            background: var(--surface);
         }
 
-        /* Shared cards and grids */
-        .grid {
+        .hero-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .info-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 8px;
+        }
+
+        .info-row {
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-row strong {
+            display: block;
+            color: var(--accent);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-row span {
+            display: block;
+            margin-top: 4px;
+            color: var(--text);
+            overflow-wrap: anywhere;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
-        .three-columns {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-
-        .card {
+        .skill-card {
+            padding: 25px;
             background: var(--surface);
             border: 1px solid var(--border);
-            padding: 25px;
             border-radius: 8px;
-            min-width: 0;
+            transition: transform 0.2s, border-color 0.2s;
         }
 
-        .card h3 {
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .skill-number {
             color: var(--accent);
-            font-size: 1.1rem;
-            margin-bottom: 12px;
+            font-size: 13px;
+            letter-spacing: 2px;
         }
 
-        .card p,
-        .card li {
+        .skill-card h3 {
+            font-size: 18px;
+            margin: 12px 0;
+        }
+
+        .skill-card p {
             color: var(--muted);
-            font-size: .95rem;
-        }
-
-        .card ul {
-            padding-left: 20px;
-        }
-
-        .card li {
-            margin-bottom: 7px;
+            font-size: 14px;
         }
 
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
+            gap: 9px;
+            margin-top: 25px;
         }
 
         .tag {
+            padding: 6px 11px;
             border: 1px solid var(--border);
-            color: #dedbd5;
-            border-radius: 30px;
-            padding: 4px 10px;
-            font-size: .78rem;
-        }
-
-        /* About */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .profile-list {
-            list-style: none;
-        }
-
-        .profile-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
+            border-radius: 3px;
             color: var(--muted);
-            overflow-wrap: anywhere;
+            font-size: 12px;
         }
 
-        .profile-list strong {
-            color: var(--text);
-        }
+        /* EXPERIENCE AND EDUCATION */
 
-        .about-copy p {
-            color: var(--muted);
-            margin-bottom: 16px;
-        }
-
-        /* Experience timeline */
         .timeline {
-            border-left: 2px solid var(--accent);
-            margin-left: 10px;
+            position: relative;
+            margin-left: 8px;
             padding-left: 28px;
+            border-left: 1px solid var(--border);
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 35px;
+            padding: 0 0 38px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
         }
 
         .timeline-item::before {
             content: "";
             position: absolute;
-            left: -36px;
+            width: 10px;
+            height: 10px;
+            left: -34px;
             top: 8px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
             background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .timeline-item h3 {
-            font-size: 1.15rem;
-            margin-bottom: 4px;
+            font-size: 20px;
+            margin: 6px 0;
         }
 
-        .timeline-item .meta {
-            color: var(--accent);
-            font-size: .9rem;
-            margin-bottom: 10px;
-        }
-
-        .timeline-item p,
-        .timeline-item li {
+        .timeline-company {
             color: var(--muted);
-            font-size: .95rem;
+            margin-bottom: 12px;
+            font-size: 14px;
         }
 
         .timeline-item ul {
             padding-left: 20px;
+            color: var(--muted);
         }
 
         .timeline-item li {
             margin-bottom: 7px;
         }
 
-        /* Projects */
-        .project-type {
-            color: var(--accent) !important;
-            text-transform: uppercase;
-            font-size: .75rem !important;
-            letter-spacing: 1.3px;
-            margin-bottom: 10px;
+        /* PROJECTS */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
         }
 
-        /* Contact */
-        .contact-panel {
+        .project-card {
+            display: flex;
+            flex-direction: column;
             background: var(--surface);
             border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .project-type {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .project-card h3 {
+            font-size: 21px;
+            margin: 12px 0;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .project-card .tags {
+            margin-top: auto;
+            padding-top: 15px;
+        }
+
+        /* CERTIFICATIONS */
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .cert-item {
+            padding: 20px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 6px;
+        }
+
+        .cert-item h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .cert-item p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* CAREER INTERESTS */
+
+        .career-box {
             padding: 35px;
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 8px;
         }
 
-        .contact-panel p {
+        .career-box p {
             color: var(--muted);
-            margin-bottom: 20px;
+            max-width: 850px;
         }
 
+        /* CONTACT */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .contact-copy p {
+            color: var(--muted);
+            margin: 15px 0 25px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-link {
+            padding: 15px 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            overflow-wrap: anywhere;
+            transition: border-color 0.2s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+        }
+
+        .contact-link strong {
+            display: block;
+            color: var(--accent);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-link span {
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+
         footer {
-            padding: 25px 0;
+            padding: 28px 0;
             border-top: 1px solid var(--border);
             text-align: center;
             color: var(--muted);
-            font-size: .85rem;
+            font-size: 12px;
         }
 
-        @media (max-width: 800px) {
-            .three-columns {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
+        footer span {
+            color: var(--accent);
+        }
 
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
+        /* RESPONSIVE */
 
-            nav {
-                padding: 15px 0;
+        @media (max-width: 900px) {
+            .navbar {
+                padding: 16px 0;
                 align-items: flex-start;
                 flex-direction: column;
             }
-        }
 
-        @media (max-width: 560px) {
-            .grid,
-            .three-columns {
-                grid-template-columns: 1fr;
+            nav {
+                gap: 12px 18px;
             }
 
-            section {
-                padding: 60px 0;
+            .hero-layout {
+                gap: 35px;
+            }
+
+            .hero-photo {
+                flex-basis: 250px;
+                width: 250px;
+                height: 320px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .section {
+                padding: 70px 0;
             }
 
             #home {
-                min-height: 75vh;
+                min-height: auto;
+                padding: 65px 0;
             }
 
-            .nav-links {
-                gap: 12px;
+            .hero-layout {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+                gap: 32px;
             }
 
-            .nav-links a {
-                font-size: .82rem;
+            .hero-photo {
+                flex: none;
+                width: 210px;
+                height: 260px;
             }
 
-            .contact-panel {
+            .hero-content h1 {
+                letter-spacing: -1px;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects-grid,
+            .cert-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-card,
+            .skill-card,
+            .project-card {
+                padding: 22px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .career-box {
                 padding: 24px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
             }
         }
     </style>
@@ -370,478 +627,739 @@
 
 <body>
 
-<header>
-    <nav class="container">
-        <a class="logo" href="#home">AEMAN<span class="accent">.</span></a>
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container navbar">
+            <a href="#home" class="logo">AEMAN<span>.</span></a>
 
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main>
-
-    <!-- HERO -->
-    <section id="home">
-        <div class="container hero-content">
-            <p class="eyebrow">Personal Portfolio · Kuching, Sarawak</p>
-
-            <h1>
-                Mohammad Aeman<br>
-                <span class="accent">bin Muzaldi.</span>
-            </h1>
-
-            <p class="hero-subtitle">
-                COMPUTER SCIENCE (NETWORK COMPUTING) STUDENT
-            </p>
-
-            <p class="hero-description">
-                Telecommunications, networking and IT infrastructure.
-                Combining a foundation in electronic communication systems
-                with computing knowledge and practical technical experience
-                in broadcasting, digital systems and multimedia production.
-            </p>
-
-            <a class="button primary" href="#experience">Explore My Experience</a>
-            <a class="button" href="#projects">View My Projects</a>
+            <nav aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <!-- ABOUT -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About <span class="accent">Me</span></h2>
-            <p class="section-intro">
-                My academic background, technical interests and professional direction.
-            </p>
+    <main>
 
-            <div class="about-grid">
-                <div class="card">
-                    <h3>Profile</h3>
-                    <ul class="profile-list">
-                        <li><strong>Full name:</strong> Mohammad Aeman bin Muzaldi</li>
-                        <li><strong>University:</strong> UNIMAS</li>
-                        <li><strong>Programme:</strong> Computer Science (Network Computing)</li>
-                        <li><strong>Current CGPA:</strong> 2.97</li>
-                        <li><strong>Location:</strong> Kuching, Sarawak, Malaysia</li>
-                        <li><strong>Internship period:</strong> 1 February – 16 July 2027</li>
-                    </ul>
+        <!-- HOME -->
+        <section id="home">
+            <div class="container hero-layout">
+
+                <div class="hero-content">
+                    <div class="hero-label">
+                        Computer Science · Network Computing
+                    </div>
+
+                    <h1>
+                        Mohammad Aeman<br>
+                        bin <span>Muzaldi.</span>
+                    </h1>
+
+                    <h2>
+                        Networking · Telecommunications · Digital Systems
+                    </h2>
+
+                    <p>
+                        I am a Computer Science (Network Computing) student
+                        at Universiti Malaysia Sarawak (UNIMAS), with a
+                        background in electronic engineering and practical
+                        experience in broadcast systems, network-related
+                        infrastructure, troubleshooting, and multimedia
+                        production.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="button button-primary">
+                            Explore My Work
+                        </a>
+
+                        <a href="#contact" class="button button-outline">
+                            Get In Touch
+                        </a>
+                    </div>
                 </div>
 
-                <div class="about-copy">
-                    <p>
-                        I am a Computer Science (Network Computing) student at
-                        Universiti Malaysia Sarawak (UNIMAS), with a Diploma in
-                        Electronic Engineering (Communication) from Politeknik
-                        Kuching Sarawak.
-                    </p>
+                <div class="hero-photo">
+                    <img
+                        src="profile.jpg"
+                        alt="Portrait of Mohammad Aeman bin Muzaldi"
+                        onerror="this.style.display='none';"
+                    >
+                </div>
 
-                    <p>
-                        My technical foundation spans computer networks,
-                        telecommunications, electronics, signal troubleshooting,
-                        fibre optic fundamentals, RF and microwave transmission,
-                        and IP-based communication systems.
-                    </p>
+            </div>
+        </section>
 
-                    <p>
-                        During my technical internship at Radio Television
-                        Malaysia (RTM) Kuching, I gained hands-on exposure to
-                        broadcast infrastructure, live production, audio systems,
-                        signal connections, IP codecs, intercom systems and
-                        microwave links.
-                    </p>
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <div class="container">
 
+                <div class="section-heading">
+                    <div class="section-label">01 / About Me</div>
+                    <h2>Background & <span class="accent">Profile</span></h2>
                     <p>
-                        I also work with digital business systems, membership
-                        management, website operations and multimedia content.
-                        I am interested in applying these combined experiences
-                        to network engineering, IT infrastructure, technical
-                        operations and connected systems.
+                        A combination of computing knowledge, electronic
+                        engineering fundamentals, and practical technical
+                        experience.
                     </p>
                 </div>
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+                        <p>
+                            My academic journey began in Electronic
+                            Engineering (Communication), where I developed
+                            an interest in communication systems, signal
+                            transmission, and technical troubleshooting.
+                        </p>
+
+                        <p>
+                            I am currently pursuing a Bachelor's degree in
+                            Computer Science, specialising in Network
+                            Computing, at Universiti Malaysia Sarawak
+                            (UNIMAS).
+                        </p>
+
+                        <p>
+                            Through my studies and practical experience, I
+                            have gained exposure to computer networking,
+                            programming, databases, broadcast equipment,
+                            IP-based communication systems, and digital
+                            content production.
+                        </p>
+
+                        <p>
+                            I am looking for opportunities to strengthen my
+                            technical abilities, learn from experienced
+                            professionals, and contribute to real-world IT
+                            and network infrastructure projects.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-row">
+                            <strong>Full Name</strong>
+                            <span>Mohammad Aeman bin Muzaldi</span>
+                        </div>
+
+                        <div class="info-row">
+                            <strong>Current Study</strong>
+                            <span>Bachelor of Computer Science (Network Computing)</span>
+                        </div>
+
+                        <div class="info-row">
+                            <strong>University</strong>
+                            <span>Universiti Malaysia Sarawak (UNIMAS)</span>
+                        </div>
+
+                        <div class="info-row">
+                            <strong>Location</strong>
+                            <span>Kuching, Sarawak, Malaysia</span>
+                        </div>
+
+                        <div class="info-row">
+                            <strong>Internship Availability</strong>
+                            <span>1 February – 16 July 2027</span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SKILLS -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
-            <p class="section-intro">
-                Knowledge and practical exposure developed through coursework,
-                projects and professional experience.
-            </p>
+        <!-- TECHNICAL SKILLS -->
+        <section id="skills" class="section">
+            <div class="container">
 
-            <div class="grid three-columns">
-                <article class="card">
-                    <h3>Networking & Telecom</h3>
-                    <p>Network infrastructure, communication systems and signal diagnostics.</p>
-                    <div class="tags">
-                        <span class="tag">IP Communication</span>
-                        <span class="tag">Network Troubleshooting</span>
-                        <span class="tag">Fibre Optics</span>
-                        <span class="tag">RF / Microwave</span>
-                        <span class="tag">Cable Testing</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>IT & Programming</h3>
-                    <p>Computing fundamentals and programming for academic and technical projects.</p>
-                    <div class="tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">C++</span>
-                        <span class="tag">Python / Flask</span>
-                        <span class="tag">SQL / MariaDB</span>
-                        <span class="tag">Linux Basics</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>Broadcast Systems</h3>
-                    <p>Practical exposure to studio operations and live broadcast workflows.</p>
-                    <div class="tags">
-                        <span class="tag">vMix</span>
-                        <span class="tag">ATEM Mini Pro</span>
-                        <span class="tag">HDMI / SDI</span>
-                        <span class="tag">IP Codec</span>
-                        <span class="tag">Intercom</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>Systems & Security</h3>
-                    <p>Academic knowledge of computing environments and connected devices.</p>
-                    <div class="tags">
-                        <span class="tag">Computer Networks</span>
-                        <span class="tag">Cybersecurity Fundamentals</span>
-                        <span class="tag">Operating Systems</span>
-                        <span class="tag">IoT</span>
-                        <span class="tag">Embedded Systems</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>Digital Systems</h3>
-                    <p>Customer data management and digital business workflows.</p>
-                    <div class="tags">
-                        <span class="tag">Google Sheets</span>
-                        <span class="tag">AppSheet</span>
-                        <span class="tag">Shopify</span>
-                        <span class="tag">Website Management</span>
-                        <span class="tag">SQL</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>Multimedia</h3>
-                    <p>Visual content production, event documentation and branding.</p>
-                    <div class="tags">
-                        <span class="tag">Canva</span>
-                        <span class="tag">CapCut</span>
-                        <span class="tag">Photography</span>
-                        <span class="tag">Video Production</span>
-                        <span class="tag">Visual Branding</span>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title">Work <span class="accent">Experience</span></h2>
-            <p class="section-intro">
-                Professional experience across digital systems, multimedia,
-                technical broadcasting and customer operations.
-            </p>
-
-            <div class="timeline">
-
-                <article class="timeline-item">
-                    <h3>Multimedia & Digital Systems Lead</h3>
-                    <p class="meta">September 2026 – Present · Two Tales · Kuching</p>
-                    <ul>
-                        <li>Developed and managed the business website and customer membership application system.</li>
-                        <li>Managed membership records, customer data, loyalty points and voucher tracking.</li>
-                        <li>Worked with digital platforms and Shopify customer data integration.</li>
-                        <li>Produced product and event photography, promotional videos and social media content.</li>
-                        <li>Designed promotional materials and supported campaigns, pop-up events and brand engagement.</li>
-                    </ul>
-                </article>
-
-                <article class="timeline-item">
-                    <h3>Multimedia & Publicity Unit</h3>
-                    <p class="meta">August 2026 · Azzam Reezky Group × KO-BIS Berhad × Sarawak Energy Project</p>
-                    <ul>
-                        <li>Supported project branding, documentation, publicity and scheduled social media content.</li>
-                        <li>Designed jerseys, ID cards, lanyards and banners.</li>
-                        <li>Produced event photography, interview videos, VLOGs and promotional videos.</li>
-                        <li>Used Canon EOS 500D, iPhone 13, Canva and CapCut for content production.</li>
-                    </ul>
-                </article>
-
-                <article class="timeline-item">
-                    <h3>Technical Intern — Broadcasting & Communication Systems</h3>
-                    <p class="meta">January 2024 – June 2024 · Radio Television Malaysia (RTM), Kuching</p>
-                    <ul>
-                        <li>Assisted with installation, operation, maintenance and troubleshooting of broadcast equipment.</li>
-                        <li>Investigated audio distortion, grounding, wiring and signal faults using inspection and XLR continuity checks.</li>
-                        <li>Supported multi-camera production, HDMI / SDI connections, vMix and ATEM Mini Pro livestreaming.</li>
-                        <li>Worked with IP codecs, intercom panels, master clock systems, Yamaha sound systems and Zoom H6 recorders.</li>
-                        <li>Assisted with parabolic antenna setups and Ikegami PF-531A microwave links during broadcast operations.</li>
-                    </ul>
-                </article>
-
-                <article class="timeline-item">
-                    <h3>Kitchen Helper</h3>
-                    <p class="meta">July 2025 – September 2025 · Classic Trias Enterprise</p>
-                    <ul>
-                        <li>Supported food preparation, daily kitchen operations, cleanliness and food safety.</li>
-                        <li>Worked collaboratively during busy operating periods.</li>
-                    </ul>
-                </article>
-
-                <article class="timeline-item">
-                    <h3>Store Associate</h3>
-                    <p class="meta">June 2024 – September 2024 · 7-Eleven</p>
-                    <ul>
-                        <li>Handled cashier duties, customer transactions, inventory and store organisation.</li>
-                        <li>Developed customer service, communication, teamwork and time-management skills.</li>
-                    </ul>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education">
-        <div class="container">
-            <h2 class="section-title">Education & <span class="accent">Certifications</span></h2>
-            <p class="section-intro">
-                Academic qualifications and technical training.
-            </p>
-
-            <div class="grid">
-                <article class="card">
-                    <h3>Universiti Malaysia Sarawak (UNIMAS)</h3>
-                    <p>Bachelor of Science in Computer Science (Network Computing)</p>
-                    <p>2024 – Present</p>
-                    <div class="tags">
-                        <span class="tag">CGPA: 2.97</span>
-                        <span class="tag">Computer Science</span>
-                        <span class="tag">Network Computing</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>Politeknik Kuching Sarawak</h3>
-                    <p>Diploma in Electronic Engineering (Communication)</p>
-                    <p>2021 – 2024</p>
-                    <div class="tags">
-                        <span class="tag">CGPA: 3.07</span>
-                        <span class="tag">Electronics</span>
-                        <span class="tag">Communication Systems</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>Technical Certifications</h3>
-                    <ul>
-                        <li>Certificate of Proficiency — Fibre Optic (1-C)</li>
-                        <li>MCP System — RTM</li>
-                        <li>Yamaha Sound System — RTM</li>
-                        <li>Live Streaming & Live Radio Systems — RTM</li>
-                    </ul>
-                </article>
-
-                <article class="card">
-                    <h3>Academic Recognition</h3>
-                    <p>Politeknik Dean's List — 2021</p>
-                    <p>Recognition received during diploma studies.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Technical <span class="accent">Projects</span></h2>
-            <p class="section-intro">
-                Selected projects demonstrating my interests in digital systems,
-                databases, networking and electronics.
-            </p>
-
-            <div class="grid">
-                <article class="card">
-                    <p class="project-type">Digital Systems · Database · E-commerce</p>
-                    <h3>Membership Management System & Business Website</h3>
+                <div class="section-heading">
+                    <div class="section-label">02 / Capabilities</div>
+                    <h2>Technical <span class="accent">Skills</span></h2>
                     <p>
-                        Developed and managed a customer membership workflow for a
-                        retail business, covering member registration, customer
-                        record management, loyalty points, voucher tracking and
-                        Shopify customer data integration. Also supported the
-                        website, digital business platforms and promotional content.
+                        Technical areas developed through academic studies,
+                        practical assignments, and workplace experience.
                     </p>
-                    <div class="tags">
-                        <span class="tag">AppSheet</span>
-                        <span class="tag">Google Sheets</span>
-                        <span class="tag">Shopify</span>
-                        <span class="tag">Web Management</span>
-                    </div>
-                </article>
+                </div>
 
-                <article class="card">
-                    <p class="project-type">IoT · GPS · Electronics</p>
-                    <h3>GPS-Based Solar Pet Tracker</h3>
-                    <p>
-                        Developed an IoT tracking concept using an ESP8266, NEO-6M
-                        GPS module, lithium battery and solar-powered components.
-                        The project explores hardware integration, location
-                        tracking and connected-device communication.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">ESP8266</span>
-                        <span class="tag">NEO-6M GPS</span>
-                        <span class="tag">IoT</span>
-                        <span class="tag">Electronics</span>
-                    </div>
-                </article>
+                <div class="skills-grid">
 
-                <article class="card">
-                    <p class="project-type">Broadcasting · Communication</p>
-                    <h3>Broadcast Signal & Live Production Operations</h3>
-                    <p>
-                        Practical technical work involving audiovisual signal
-                        connections, audio troubleshooting, live streaming
-                        equipment and broadcast communication infrastructure
-                        during industrial training at RTM Kuching.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">HDMI / SDI</span>
-                        <span class="tag">vMix</span>
-                        <span class="tag">IP Codec</span>
-                        <span class="tag">Microwave Links</span>
-                    </div>
-                </article>
+                    <article class="skill-card">
+                        <div class="skill-number">01</div>
+                        <h3>Networking & Telecommunications</h3>
+                        <p>
+                            Foundational knowledge of network configuration,
+                            communication infrastructure, and
+                            signal troubleshooting.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">IP Addressing</span>
+                            <span class="tag">Subnetting</span>
+                            <span class="tag">Cisco Packet Tracer</span>
+                            <span class="tag">Network Fundamentals</span>
+                            <span class="tag">Fibre Optics</span>
+                            <span class="tag">RF & Microwave</span>
+                        </div>
+                    </article>
 
-                <article class="card">
-                    <p class="project-type">Programming · Database</p>
-                    <h3>Computing & Database Coursework</h3>
-                    <p>
-                        Academic work involving programming logic, Java and C++,
-                        Python / Flask, SQL / MariaDB and computer networking.
-                        These exercises developed my understanding of software,
-                        data structures and technical problem-solving.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">C++</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">SQL</span>
-                    </div>
-                </article>
+                    <article class="skill-card">
+                        <div class="skill-number">02</div>
+                        <h3>Programming & Development</h3>
+                        <p>
+                            Academic programming experience and exposure
+                            to software development fundamentals.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-number">03</div>
+                        <h3>Database Management</h3>
+                        <p>
+                            Experience with database concepts, structured
+                            data, and database-related coursework.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">MariaDB</span>
+                            <span class="tag">Database Design</span>
+                            <span class="tag">Google Sheets</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-number">04</div>
+                        <h3>System Support & Security</h3>
+                        <p>
+                            Basic system troubleshooting, operating
+                            system knowledge, and cybersecurity concepts.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Windows Troubleshooting</span>
+                            <span class="tag">Linux CLI</span>
+                            <span class="tag">Computer Hardware</span>
+                            <span class="tag">Cybersecurity</span>
+                            <span class="tag">Operating Systems</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-number">05</div>
+                        <h3>Broadcast & AV Systems</h3>
+                        <p>
+                            Hands-on exposure to broadcast equipment,
+                            audiovisual systems, and live production.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">HDMI / SDI</span>
+                            <span class="tag">vMix</span>
+                            <span class="tag">ATEM Mini Pro</span>
+                            <span class="tag">IP Codec</span>
+                            <span class="tag">Intercom Systems</span>
+                            <span class="tag">Audio Systems</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-number">06</div>
+                        <h3>Digital Media & Design</h3>
+                        <p>
+                            Visual content creation and multimedia support
+                            for projects, events, and business activities.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Canva</span>
+                            <span class="tag">CapCut</span>
+                            <span class="tag">Photography</span>
+                            <span class="tag">Videography</span>
+                            <span class="tag">Social Media Content</span>
+                        </div>
+                    </article>
+
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CAREER INTERESTS -->
-    <section id="interests">
+        <!-- WORK EXPERIENCE -->
+        <section id="experience" class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div class="section-label">03 / Professional Journey</div>
+                    <h2>Work <span class="accent">Experience</span></h2>
+                    <p>
+                        Practical experience across technical systems,
+                        multimedia, business operations, and customer service.
+                    </p>
+                </div>
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">September 2026 – Present</div>
+                        <h3>Multimedia & Digital Systems Lead</h3>
+                        <div class="timeline-company">
+                            Two Tales · Kuching, Sarawak
+                        </div>
+                        <ul>
+                            <li>
+                                Develop and maintain digital tools supporting
+                                business operations and customer membership
+                                management.
+                            </li>
+                            <li>
+                                Work on membership records, customer points,
+                                and voucher tracking using low-code tools
+                                and spreadsheets.
+                            </li>
+                            <li>
+                                Support the business website and online
+                                product presentation, including Shopify
+                                integration work where applicable.
+                            </li>
+                            <li>
+                                Create product photography, promotional
+                                visuals, and multimedia content for business
+                                marketing and events.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">August 2026</div>
+                        <h3>Multimedia & Publicity Unit</h3>
+                        <div class="timeline-company">
+                            Azzam Reezky Group × KO-BIS Berhad × Sarawak Energy Project
+                        </div>
+                        <ul>
+                            <li>
+                                Assisted with project branding and design
+                                materials, including jerseys, identification
+                                cards, lanyards, and banners.
+                            </li>
+                            <li>
+                                Captured event photography, videos, and
+                                vlog-style content for publicity purposes.
+                            </li>
+                            <li>
+                                Used Canon EOS 500D, iPhone 13, Canva, and
+                                CapCut for content production and editing.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">January – June 2024</div>
+                        <h3>Technical Intern — Broadcasting & Communication Systems</h3>
+                        <div class="timeline-company">
+                            Radio Televisyen Malaysia (RTM) · Kuching
+                        </div>
+                        <ul>
+                            <li>
+                                Assisted with maintenance and troubleshooting
+                                of broadcast equipment and communication
+                                systems.
+                            </li>
+                            <li>
+                                Worked with HDMI and SDI connections,
+                                vMix, and ATEM Mini Pro during live
+                                production activities.
+                            </li>
+                            <li>
+                                Gained practical exposure to IP codecs,
+                                intercom systems, master clock equipment,
+                                and audio systems.
+                            </li>
+                            <li>
+                                Observed and assisted with broadcast
+                                transmission equipment, including microwave
+                                links and antennas.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">July – September 2025</div>
+                        <h3>Kitchen Helper</h3>
+                        <div class="timeline-company">
+                            Classic Trias Enterprise
+                        </div>
+                        <ul>
+                            <li>
+                                Supported food preparation and daily kitchen
+                                operations while maintaining cleanliness
+                                and food safety.
+                            </li>
+                            <li>
+                                Coordinated with team members during
+                                busy service periods.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">June – September 2024</div>
+                        <h3>Store Associate</h3>
+                        <div class="timeline-company">7-Eleven</div>
+                        <ul>
+                            <li>
+                                Handled cashier operations, customer
+                                transactions, and store organisation.
+                            </li>
+                            <li>
+                                Assisted with inventory tasks and developed
+                                customer service, teamwork, and
+                                time-management skills.
+                            </li>
+                        </ul>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div class="section-label">04 / Academic Background</div>
+                    <h2>Education & <span class="accent">Certifications</span></h2>
+                </div>
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">2024 – Present</div>
+                        <h3>Bachelor of Computer Science (Network Computing) with Honours</h3>
+                        <div class="timeline-company">
+                            Universiti Malaysia Sarawak (UNIMAS)
+                        </div>
+                        <ul>
+                            <li>
+                                Faculty of Computer Science and Information Technology.
+                            </li>
+                            <li>
+                                Focus areas include computer networks,
+                                programming, databases, operating systems,
+                                and computer security.
+                            </li>
+                            <li>
+                                Current CGPA: 2.97.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">2021 – 2024</div>
+                        <h3>Diploma in Electronic Engineering (Communication)</h3>
+                        <div class="timeline-company">
+                            Politeknik Kuching Sarawak
+                        </div>
+                        <ul>
+                            <li>
+                                Studied communication systems, electronic
+                                engineering fundamentals, and technical
+                                troubleshooting.
+                            </li>
+                            <li>
+                                Developed foundational knowledge of
+                                telecommunications and signal transmission.
+                            </li>
+                        </ul>
+                    </article>
+
+                </div>
+
+                <div style="height: 45px;"></div>
+
+                <div class="section-heading">
+                    <div class="section-label">Professional Development</div>
+                    <h2>Certificates & <span class="accent">Recognition</span></h2>
+                </div>
+
+                <div class="cert-grid">
+
+                    <div class="cert-item">
+                        <h3>Dean's List Recognition</h3>
+                        <p>Politeknik Kuching Sarawak · 2021</p>
+                    </div>
+
+                    <div class="cert-item">
+                        <h3>Fibre Optic (1-C)</h3>
+                        <p>Fibre optic fundamentals and related technical training</p>
+                    </div>
+
+                    <div class="cert-item">
+                        <h3>MCP System</h3>
+                        <p>RTM technical training / certificate</p>
+                    </div>
+
+                    <div class="cert-item">
+                        <h3>Yamaha Sound System</h3>
+                        <p>RTM technical training / certificate</p>
+                    </div>
+
+                    <div class="cert-item">
+                        <h3>Live Streaming & Live Radio Systems</h3>
+                        <p>RTM technical training / certificate</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div class="section-label">05 / Selected Work</div>
+                    <h2>Technical <span class="accent">Projects</span></h2>
+                    <p>
+                        Selected projects combining computing, electronics,
+                        system development, and practical problem-solving.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <div class="project-type">Business Systems · Low-Code</div>
+                        <h3>Membership Management System</h3>
+                        <p>
+                            A membership administration workflow designed
+                            to organise customer registration details,
+                            membership records, purchase points, and voucher
+                            redemption status for a small retail business.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">AppSheet</span>
+                            <span class="tag">Google Sheets</span>
+                            <span class="tag">Tally</span>
+                            <span class="tag">Workflow Design</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-type">Web · Business</div>
+                        <h3>Business Website & Digital Presence</h3>
+                        <p>
+                            Worked on digital business presentation and
+                            online product visibility, supporting product
+                            information, promotional content, and online
+                            selling workflows.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Website Development</span>
+                            <span class="tag">Shopify</span>
+                            <span class="tag">Digital Content</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-type">IoT · Embedded Systems</div>
+                        <h3>GPS-Based Solar Pet Tracker</h3>
+                        <p>
+                            An academic project concept involving GPS
+                            positioning and a microcontroller-based device
+                            to support pet location tracking, with a focus
+                            on portable power and outdoor use.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">NEO-6M GPS</span>
+                            <span class="tag">ESP8266</span>
+                            <span class="tag">IoT</span>
+                            <span class="tag">Solar Power</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-type">Broadcast · Communication</div>
+                        <h3>Broadcast Systems & Live Production</h3>
+                        <p>
+                            Practical workplace exposure to broadcast
+                            equipment, audiovisual signal connections,
+                            live streaming workflows, and communication
+                            infrastructure during an RTM internship.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">HDMI / SDI</span>
+                            <span class="tag">vMix</span>
+                            <span class="tag">ATEM Mini Pro</span>
+                            <span class="tag">IP Communication</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-type">Programming · Coursework</div>
+                        <h3>Programming & Database Assignments</h3>
+                        <p>
+                            Completed academic exercises and assignments
+                            involving programming logic, object-oriented
+                            concepts, database structures, and data
+                            management.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">SQL</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-type">Multimedia · Design</div>
+                        <h3>Event Branding & Media Production</h3>
+                        <p>
+                            Supported promotional and event-related
+                            deliverables through graphic design,
+                            photography, video editing, and social media
+                            content creation.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Canva</span>
+                            <span class="tag">CapCut</span>
+                            <span class="tag">Canon EOS 500D</span>
+                            <span class="tag">Videography</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CAREER INTERESTS -->
+        <section id="career" class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div class="section-label">06 / Future Direction</div>
+                    <h2>Career <span class="accent">Interests</span></h2>
+                </div>
+
+                <div class="career-box">
+                    <p>
+                        I am interested in opportunities related to IT
+                        infrastructure, network administration,
+                        telecommunications, technical support, system
+                        troubleshooting, and digital systems. I am keen to
+                        apply my academic knowledge in a professional
+                        environment, gain hands-on experience, and continue
+                        developing my technical capabilities during my
+                        industrial training.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Network Administration</span>
+                        <span class="tag">IT Infrastructure</span>
+                        <span class="tag">Technical Support</span>
+                        <span class="tag">Telecommunications</span>
+                        <span class="tag">System Troubleshooting</span>
+                        <span class="tag">Industrial Training 2027</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div class="section-label">07 / Contact</div>
+                    <h2>Let's <span class="accent">Connect</span></h2>
+                    <p>
+                        Open to internship opportunities, technical
+                        learning experiences, and professional connections.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+
+                    <div class="contact-copy">
+                        <h3>Interested in working together?</h3>
+                        <p>
+                            If you would like to discuss an internship,
+                            technical opportunity, or project, feel free
+                            to contact me through email.
+                        </p>
+
+                        <a
+                            class="button button-primary"
+                            href="mailto:aemanmuz@gmail.com?subject=Internship%20Opportunity"
+                        >
+                            Email Me
+                        </a>
+                    </div>
+
+                    <div class="contact-details">
+
+                        <a class="contact-link"
+                           href="mailto:aemanmuz@gmail.com">
+                            <strong>Email</strong>
+                            <span>aemanmuz@gmail.com</span>
+                        </a>
+
+                        <div class="contact-link">
+                            <strong>Location</strong>
+                            <span>Kuching, Sarawak, Malaysia</span>
+                        </div>
+
+                        <div class="contact-link">
+                            <strong>Industrial Training</strong>
+                            <span>1 February – 16 July 2027</span>
+                        </div>
+
+                        <!--
+                        OPTIONAL:
+                        Add your GitHub profile by replacing YOUR-USERNAME.
+
+                        <a class="contact-link"
+                           href="https://github.com/YOUR-USERNAME"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <strong>GitHub</strong>
+                            <span>View my repositories</span>
+                        </a>
+
+                        Add your LinkedIn URL in the same way if you have one.
+                        -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
         <div class="container">
-            <h2 class="section-title">Career <span class="accent">Interests</span></h2>
-            <p class="section-intro">
-                Areas in which I aim to build deeper technical knowledge and
-                gain professional experience.
+            <p>
+                © <span id="year"></span>
+                Mohammad Aeman bin Muzaldi.
+                Built with <span>HTML & CSS</span>.
             </p>
-
-            <div class="grid three-columns">
-                <article class="card">
-                    <h3>Network Engineering</h3>
-                    <p>Network configuration, connectivity, infrastructure and NOC operations.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Telecommunications</h3>
-                    <p>Communication systems, signal transmission and technical infrastructure.</p>
-                </article>
-
-                <article class="card">
-                    <h3>IT Infrastructure</h3>
-                    <p>Systems administration, IT operations and troubleshooting.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Cybersecurity</h3>
-                    <p>Developing knowledge of network security and secure computing practices.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Technical Support</h3>
-                    <p>Diagnosing hardware, software, connectivity and system issues.</p>
-                </article>
-
-                <article class="card">
-                    <h3>IoT & Connected Systems</h3>
-                    <p>Exploring embedded devices, GPS tracking and connected technologies.</p>
-                </article>
-            </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="container">
-            <div class="contact-panel">
-                <p class="eyebrow">Opportunities · Collaboration · Networking</p>
-                <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
-
-                <p>
-                    I am interested in industrial training opportunities and
-                    professional development in networking, telecommunications,
-                    IT infrastructure and technical operations.
-                    My internship availability is from 1 February to 16 July 2027.
-                </p>
-
-                <a class="button primary"
-                   href="mailto:aemanmuz@gmail.com">
-                    Email Me
-                </a>
-
-                <!-- Add your actual LinkedIn or GitHub profile URL here. -->
-                <a class="button"
-                   href="https://github.com/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    GitHub
-                </a>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<footer>
-    <div class="container">
-        <p>
-            &copy; <span id="year"></span> Mohammad Aeman bin Muzaldi.
-            Personal portfolio.
-        </p>
-    </div>
-</footer>
-
-<script>
-    document.getElementById("year").textContent =
-        new Date().getFullYear();
-</script>
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
 
 </body>
 </html>
