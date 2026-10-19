@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Mohammad Aeman bin Muzaldi | Portfolio</title>
-
-    <meta name="description"
-          content="Personal portfolio of Mohammad Aeman bin Muzaldi, a Computer Science (Network Computing) student at UNIMAS with experience in networking, telecommunications, broadcast systems, and multimedia.">
+    <meta name="description" content="Portfolio of Mohammad Aeman bin Muzaldi, a Computer Science (Network Computing) student at UNIMAS with experience in networking, telecommunications, broadcast systems, and multimedia.">
 
     <style>
         :root {
             --bg: #101010;
             --surface: #191919;
-            --surface-light: #222222;
             --text: #f5f1e9;
             --muted: #b5afa4;
             --accent: #c8ad83;
@@ -40,10 +37,6 @@
             text-decoration: none;
         }
 
-        img {
-            max-width: 100%;
-        }
-
         .container {
             width: min(1120px, 90%);
             margin: 0 auto;
@@ -54,36 +47,32 @@
         }
 
         .section {
-            padding: 100px 0;
-            scroll-margin-top: 80px;
-        }
-
-        .section:nth-of-type(even) {
-            background: #141414;
+            padding: 90px 0;
+            scroll-margin-top: 85px;
         }
 
         .section-heading {
-            margin-bottom: 45px;
+            margin-bottom: 40px;
         }
 
         .section-label {
             color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
             font-size: 12px;
             font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .section-heading h2 {
             font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.3;
             margin-top: 8px;
-            line-height: 1.25;
         }
 
         .section-heading p {
             color: var(--muted);
-            margin-top: 12px;
             max-width: 650px;
+            margin-top: 12px;
         }
 
         /* NAVIGATION */
@@ -106,8 +95,8 @@
         }
 
         .logo {
-            font-weight: bold;
             font-size: 18px;
+            font-weight: bold;
             letter-spacing: 1px;
             white-space: nowrap;
         }
@@ -119,7 +108,7 @@
         nav {
             display: flex;
             flex-wrap: wrap;
-            gap: 22px;
+            gap: 18px;
         }
 
         nav a {
@@ -135,17 +124,17 @@
         /* HERO */
 
         #home {
-            min-height: 86vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
-            padding: 75px 0;
+            padding: 70px 0;
         }
 
         .hero-layout {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 65px;
+            gap: 60px;
         }
 
         .hero-content {
@@ -154,17 +143,17 @@
 
         .hero-label {
             color: var(--accent);
-            letter-spacing: 3px;
             font-size: 12px;
             font-weight: bold;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         .hero-content h1 {
-            font-size: clamp(38px, 6vw, 68px);
+            font-size: clamp(38px, 6vw, 66px);
             line-height: 1.12;
-            margin: 22px 0;
             letter-spacing: -2px;
+            margin: 22px 0;
         }
 
         .hero-content h1 span {
@@ -173,7 +162,7 @@
 
         .hero-content h2 {
             color: var(--muted);
-            font-size: clamp(17px, 2.5vw, 23px);
+            font-size: clamp(17px, 2.5vw, 22px);
             font-weight: normal;
             margin-bottom: 20px;
         }
@@ -181,7 +170,7 @@
         .hero-content p {
             color: var(--muted);
             max-width: 600px;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
         .hero-buttons {
@@ -241,7 +230,7 @@
         .about-grid {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
-            gap: 55px;
+            gap: 45px;
             align-items: start;
         }
 
@@ -253,7 +242,7 @@
         .info-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            padding: 28px;
+            padding: 25px;
             border-radius: 8px;
         }
 
@@ -270,14 +259,13 @@
             display: block;
             color: var(--accent);
             font-size: 12px;
-            text-transform: uppercase;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .info-row span {
             display: block;
             margin-top: 4px;
-            color: var(--text);
             overflow-wrap: anywhere;
         }
 
@@ -297,7 +285,8 @@
             transition: transform 0.2s, border-color 0.2s;
         }
 
-        .skill-card:hover {
+        .skill-card:hover,
+        .project-card:hover {
             transform: translateY(-4px);
             border-color: var(--accent);
         }
@@ -313,7 +302,8 @@
             margin: 12px 0;
         }
 
-        .skill-card p {
+        .skill-card p,
+        .project-card p {
             color: var(--muted);
             font-size: 14px;
         }
@@ -321,22 +311,21 @@
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 9px;
-            margin-top: 25px;
+            gap: 8px;
+            margin-top: 20px;
         }
 
         .tag {
-            padding: 6px 11px;
+            padding: 5px 10px;
             border: 1px solid var(--border);
             border-radius: 3px;
             color: var(--muted);
             font-size: 12px;
         }
 
-        /* EXPERIENCE AND EDUCATION */
+        /* TIMELINE */
 
         .timeline {
-            position: relative;
             margin-left: 8px;
             padding-left: 28px;
             border-left: 1px solid var(--border);
@@ -344,7 +333,7 @@
 
         .timeline-item {
             position: relative;
-            padding: 0 0 38px;
+            padding-bottom: 38px;
         }
 
         .timeline-item:last-child {
@@ -372,13 +361,14 @@
 
         .timeline-item h3 {
             font-size: 20px;
-            margin: 6px 0;
+            line-height: 1.4;
+            margin: 7px 0;
         }
 
         .timeline-company {
             color: var(--muted);
-            margin-bottom: 12px;
             font-size: 14px;
+            margin-bottom: 12px;
         }
 
         .timeline-item ul {
@@ -401,34 +391,24 @@
         .project-card {
             display: flex;
             flex-direction: column;
+            padding: 27px;
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 28px;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-
-        .project-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
+            transition: transform 0.2s, border-color 0.2s;
         }
 
         .project-type {
             color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
             font-size: 11px;
             font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .project-card h3 {
             font-size: 21px;
             margin: 12px 0;
-        }
-
-        .project-card p {
-            color: var(--muted);
-            font-size: 14px;
         }
 
         .project-card .tags {
@@ -446,8 +426,8 @@
 
         .cert-item {
             padding: 20px;
-            border: 1px solid var(--border);
             background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 6px;
         }
 
@@ -464,7 +444,7 @@
         /* CAREER INTERESTS */
 
         .career-box {
-            padding: 35px;
+            padding: 30px;
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -495,6 +475,7 @@
         }
 
         .contact-link {
+            display: block;
             padding: 15px 18px;
             background: var(--surface);
             border: 1px solid var(--border);
@@ -511,8 +492,8 @@
             display: block;
             color: var(--accent);
             font-size: 12px;
-            text-transform: uppercase;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .contact-link span {
@@ -533,7 +514,7 @@
             color: var(--accent);
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE DESIGN */
 
         @media (max-width: 900px) {
             .navbar {
@@ -547,7 +528,7 @@
             }
 
             .hero-layout {
-                gap: 35px;
+                gap: 30px;
             }
 
             .hero-photo {
@@ -561,24 +542,24 @@
             }
 
             .about-grid {
-                gap: 30px;
+                gap: 28px;
             }
         }
 
         @media (max-width: 650px) {
             .section {
-                padding: 70px 0;
+                padding: 65px 0;
             }
 
             #home {
                 min-height: auto;
-                padding: 65px 0;
+                padding: 55px 0;
             }
 
             .hero-layout {
                 flex-direction: column-reverse;
                 align-items: flex-start;
-                gap: 32px;
+                gap: 30px;
             }
 
             .hero-photo {
@@ -599,18 +580,12 @@
                 grid-template-columns: 1fr;
             }
 
-            .info-card,
-            .skill-card,
-            .project-card {
-                padding: 22px;
-            }
-
             nav a {
                 font-size: 12px;
             }
 
             .career-box {
-                padding: 24px;
+                padding: 22px;
             }
         }
 
@@ -668,9 +643,8 @@
                         I am a Computer Science (Network Computing) student
                         at Universiti Malaysia Sarawak (UNIMAS), with a
                         background in electronic engineering and practical
-                        experience in broadcast systems, network-related
-                        infrastructure, troubleshooting, and multimedia
-                        production.
+                        experience in broadcast systems, troubleshooting,
+                        IP-based communication, and multimedia production.
                     </p>
 
                     <div class="hero-buttons">
@@ -684,11 +658,11 @@
                     </div>
                 </div>
 
+                <!-- YOUR PROFILE PHOTO -->
                 <div class="hero-photo">
                     <img
-                        src="profile.jpg"
+                        src="./profile.jpeg"
                         alt="Portrait of Mohammad Aeman bin Muzaldi"
-                        onerror="this.style.display='none';"
                     >
                 </div>
 
@@ -703,14 +677,13 @@
                     <div class="section-label">01 / About Me</div>
                     <h2>Background & <span class="accent">Profile</span></h2>
                     <p>
-                        A combination of computing knowledge, electronic
-                        engineering fundamentals, and practical technical
-                        experience.
+                        Combining computing knowledge, electronic
+                        engineering fundamentals, and practical
+                        technical experience.
                     </p>
                 </div>
 
                 <div class="about-grid">
-
                     <div class="about-text">
                         <p>
                             My academic journey began in Electronic
@@ -720,25 +693,25 @@
                         </p>
 
                         <p>
-                            I am currently pursuing a Bachelor's degree in
-                            Computer Science, specialising in Network
+                            I am currently pursuing a Bachelor's degree
+                            in Computer Science, specialising in Network
                             Computing, at Universiti Malaysia Sarawak
                             (UNIMAS).
                         </p>
 
                         <p>
-                            Through my studies and practical experience, I
-                            have gained exposure to computer networking,
+                            Through my studies and practical experience,
+                            I have gained exposure to computer networking,
                             programming, databases, broadcast equipment,
                             IP-based communication systems, and digital
                             content production.
                         </p>
 
                         <p>
-                            I am looking for opportunities to strengthen my
+                            I am seeking opportunities to strengthen my
                             technical abilities, learn from experienced
-                            professionals, and contribute to real-world IT
-                            and network infrastructure projects.
+                            professionals, and contribute to real-world
+                            IT and network infrastructure projects.
                         </p>
                     </div>
 
@@ -750,7 +723,7 @@
 
                         <div class="info-row">
                             <strong>Current Study</strong>
-                            <span>Bachelor of Computer Science (Network Computing)</span>
+                            <span>Bachelor of Computer Science (Network Computing) with Honours</span>
                         </div>
 
                         <div class="info-row">
@@ -764,12 +737,12 @@
                         </div>
 
                         <div class="info-row">
-                            <strong>Internship Availability</strong>
+                            <strong>Internship Period</strong>
                             <span>1 February – 16 July 2027</span>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </section>
 
@@ -842,8 +815,8 @@
                         <div class="skill-number">04</div>
                         <h3>System Support & Security</h3>
                         <p>
-                            Basic system troubleshooting, operating
-                            system knowledge, and cybersecurity concepts.
+                            Basic system troubleshooting, operating system
+                            knowledge, and cybersecurity concepts.
                         </p>
                         <div class="tags">
                             <span class="tag">Windows Troubleshooting</span>
@@ -875,8 +848,8 @@
                         <div class="skill-number">06</div>
                         <h3>Digital Media & Design</h3>
                         <p>
-                            Visual content creation and multimedia support
-                            for projects, events, and business activities.
+                            Visual content creation for projects, events,
+                            business activities, and social media.
                         </p>
                         <div class="tags">
                             <span class="tag">Canva</span>
@@ -899,8 +872,8 @@
                     <div class="section-label">03 / Professional Journey</div>
                     <h2>Work <span class="accent">Experience</span></h2>
                     <p>
-                        Practical experience across technical systems,
-                        multimedia, business operations, and customer service.
+                        Experience across technical systems, multimedia,
+                        business operations, and customer service.
                     </p>
                 </div>
 
@@ -914,23 +887,21 @@
                         </div>
                         <ul>
                             <li>
-                                Develop and maintain digital tools supporting
-                                business operations and customer membership
-                                management.
+                                Develop and manage digital tools supporting
+                                business operations and membership records.
                             </li>
                             <li>
-                                Work on membership records, customer points,
-                                and voucher tracking using low-code tools
-                                and spreadsheets.
+                                Work on customer registration, points
+                                tracking, and voucher redemption workflows
+                                using low-code tools and spreadsheets.
                             </li>
                             <li>
                                 Support the business website and online
-                                product presentation, including Shopify
-                                integration work where applicable.
+                                product presentation.
                             </li>
                             <li>
                                 Create product photography, promotional
-                                visuals, and multimedia content for business
+                                visuals, and multimedia content for
                                 marketing and events.
                             </li>
                         </ul>
@@ -950,11 +921,11 @@
                             </li>
                             <li>
                                 Captured event photography, videos, and
-                                vlog-style content for publicity purposes.
+                                vlog-style content for publicity.
                             </li>
                             <li>
-                                Used Canon EOS 500D, iPhone 13, Canva, and
-                                CapCut for content production and editing.
+                                Used Canon EOS 500D, iPhone 13, Canva,
+                                and CapCut for content production.
                             </li>
                         </ul>
                     </article>
@@ -968,8 +939,7 @@
                         <ul>
                             <li>
                                 Assisted with maintenance and troubleshooting
-                                of broadcast equipment and communication
-                                systems.
+                                of broadcast equipment and communication systems.
                             </li>
                             <li>
                                 Worked with HDMI and SDI connections,
@@ -983,8 +953,8 @@
                             </li>
                             <li>
                                 Observed and assisted with broadcast
-                                transmission equipment, including microwave
-                                links and antennas.
+                                transmission equipment, including
+                                microwave links and antennas.
                             </li>
                         </ul>
                     </article>
@@ -992,9 +962,7 @@
                     <article class="timeline-item">
                         <div class="timeline-date">July – September 2025</div>
                         <h3>Kitchen Helper</h3>
-                        <div class="timeline-company">
-                            Classic Trias Enterprise
-                        </div>
+                        <div class="timeline-company">Classic Trias Enterprise</div>
                         <ul>
                             <li>
                                 Supported food preparation and daily kitchen
@@ -1002,8 +970,8 @@
                                 and food safety.
                             </li>
                             <li>
-                                Coordinated with team members during
-                                busy service periods.
+                                Worked with team members during busy
+                                service periods.
                             </li>
                         </ul>
                     </article>
@@ -1029,7 +997,7 @@
             </div>
         </section>
 
-        <!-- EDUCATION -->
+        <!-- EDUCATION & CERTIFICATIONS -->
         <section id="education" class="section">
             <div class="container">
 
@@ -1051,13 +1019,11 @@
                                 Faculty of Computer Science and Information Technology.
                             </li>
                             <li>
-                                Focus areas include computer networks,
+                                Areas of study include computer networks,
                                 programming, databases, operating systems,
                                 and computer security.
                             </li>
-                            <li>
-                                Current CGPA: 2.97.
-                            </li>
+                            <li>Current CGPA: 2.97.</li>
                         </ul>
                     </article>
 
@@ -1070,8 +1036,8 @@
                         <ul>
                             <li>
                                 Studied communication systems, electronic
-                                engineering fundamentals, and technical
-                                troubleshooting.
+                                engineering fundamentals, and
+                                technical troubleshooting.
                             </li>
                             <li>
                                 Developed foundational knowledge of
@@ -1128,7 +1094,7 @@
                     <div class="section-label">05 / Selected Work</div>
                     <h2>Technical <span class="accent">Projects</span></h2>
                     <p>
-                        Selected projects combining computing, electronics,
+                        Selected work combining computing, electronics,
                         system development, and practical problem-solving.
                     </p>
                 </div>
@@ -1140,9 +1106,9 @@
                         <h3>Membership Management System</h3>
                         <p>
                             A membership administration workflow designed
-                            to organise customer registration details,
-                            membership records, purchase points, and voucher
-                            redemption status for a small retail business.
+                            to organise customer registration, membership
+                            records, purchase points, and voucher redemption
+                            status for a small retail business.
                         </p>
                         <div class="tags">
                             <span class="tag">AppSheet</span>
@@ -1174,8 +1140,8 @@
                         <p>
                             An academic project concept involving GPS
                             positioning and a microcontroller-based device
-                            to support pet location tracking, with a focus
-                            on portable power and outdoor use.
+                            for pet location tracking, with a focus on
+                            portable power and outdoor use.
                         </p>
                         <div class="tags">
                             <span class="tag">NEO-6M GPS</span>
@@ -1208,8 +1174,7 @@
                         <p>
                             Completed academic exercises and assignments
                             involving programming logic, object-oriented
-                            concepts, database structures, and data
-                            management.
+                            concepts, database structures, and data management.
                         </p>
                         <div class="tags">
                             <span class="tag">Java</span>
@@ -1223,10 +1188,9 @@
                         <div class="project-type">Multimedia · Design</div>
                         <h3>Event Branding & Media Production</h3>
                         <p>
-                            Supported promotional and event-related
-                            deliverables through graphic design,
-                            photography, video editing, and social media
-                            content creation.
+                            Supported promotional and event deliverables
+                            through graphic design, photography, video
+                            editing, and social media content creation.
                         </p>
                         <div class="tags">
                             <span class="tag">Canva</span>
@@ -1254,10 +1218,10 @@
                         I am interested in opportunities related to IT
                         infrastructure, network administration,
                         telecommunications, technical support, system
-                        troubleshooting, and digital systems. I am keen to
+                        troubleshooting, and digital systems. I aim to
                         apply my academic knowledge in a professional
                         environment, gain hands-on experience, and continue
-                        developing my technical capabilities during my
+                        developing my technical capabilities during
                         industrial training.
                     </p>
 
@@ -1307,8 +1271,7 @@
 
                     <div class="contact-details">
 
-                        <a class="contact-link"
-                           href="mailto:aemanmuz@gmail.com">
+                        <a class="contact-link" href="mailto:aemanmuz@gmail.com">
                             <strong>Email</strong>
                             <span>aemanmuz@gmail.com</span>
                         </a>
@@ -1324,8 +1287,8 @@
                         </div>
 
                         <!--
-                        OPTIONAL:
-                        Add your GitHub profile by replacing YOUR-USERNAME.
+                        OPTIONAL GITHUB LINK:
+                        Replace YOUR-USERNAME with your GitHub username.
 
                         <a class="contact-link"
                            href="https://github.com/YOUR-USERNAME"
@@ -1334,8 +1297,6 @@
                             <strong>GitHub</strong>
                             <span>View my repositories</span>
                         </a>
-
-                        Add your LinkedIn URL in the same way if you have one.
                         -->
 
                     </div>
