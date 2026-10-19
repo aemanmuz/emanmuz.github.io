@@ -1,0 +1,875 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Personal portfolio of a Computer Science (Network Computing) student at UNIMAS.">
+    <meta name="author" content="Eman Muz">
+
+    <title>About Me | Eman Muz</title>
+
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --background: #0b0b0b;
+            --surface: #151515;
+            --text: #f5f5f5;
+            --muted: #a5a5a5;
+            --accent: #c5a880;
+            --border: #292929;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+        .accent {
+            color: var(--accent);
+        }
+
+        /* ===== NAVIGATION ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 11, 11, 0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== HERO ===== */
+        #home {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 4px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .button:hover {
+            background: var(--accent);
+            color: #111;
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: #111;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .about-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .profile-details {
+            list-style: none;
+        }
+
+        .profile-details li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            overflow-wrap: anywhere;
+        }
+
+        .profile-details strong {
+            color: var(--accent);
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 25px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .skill-card h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: #ddd;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .timeline {
+            border-left: 2px solid var(--accent);
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -38px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+        }
+
+        /* ===== EDUCATION ===== */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .education-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .education-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .education-card p {
+            color: var(--muted);
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            padding: 28px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .project-card h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+        }
+
+        /* ===== GOALS ===== */
+        .goals-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 8px;
+        }
+
+        .goals-box ul {
+            padding-left: 22px;
+            color: var(--muted);
+        }
+
+        .goals-box li {
+            margin: 10px 0;
+        }
+
+        /* ===== CONTACT ===== */
+        #contact {
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .contact-content p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 25px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+
+            .nav-links a {
+                font-size: 0.78rem;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .education-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            #home {
+                min-height: 75vh;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            nav {
+                align-items: flex-start;
+                padding: 15px 0;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+                gap: 15px;
+            }
+
+            .button {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">EM<span class="accent">.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ===== HOME ===== -->
+        <section id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="eyebrow">Computer Science Student | Network Computing</p>
+
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="accent">Eman Muz.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        A Computer Science student at Universiti Malaysia Sarawak
+                        (UNIMAS), passionate about networking, information technology,
+                        technical troubleshooting, and digital creativity.
+                    </p>
+
+                    <a href="#about" class="button button-primary">
+                        Discover More
+                    </a>
+
+                    <a href="#contact" class="button">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT ME ===== -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About <span class="accent">Me</span></h2>
+
+                <p class="section-description">
+                    An introduction to my background, interests, and professional goals.
+                </p>
+
+                <div class="about-grid">
+
+                    <div class="about-card">
+                        <h3>Personal Profile</h3>
+
+                        <ul class="profile-details">
+                            <li><strong>Name:</strong> Eman Muz</li>
+                            <li><strong>Location:</strong> Kuching, Sarawak, Malaysia</li>
+                            <li><strong>University:</strong> UNIMAS</li>
+                            <li><strong>Field:</strong> Computer Science</li>
+                            <li><strong>Specialisation:</strong> Network Computing</li>
+                            <li><strong>Career Goal:</strong> IT and Networking</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>A Little About Myself</h3>
+
+                        <p>
+                            I am currently pursuing a Bachelor of Computer Science
+                            (Network Computing with Honours) at Universiti Malaysia
+                            Sarawak. My studies have introduced me to computer
+                            networking, programming, database management, operating
+                            systems, and computer security.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            I also have a Diploma in Electronic Engineering
+                            (Communication), which provided me with a foundation in
+                            communication systems, electronic equipment, and technical
+                            troubleshooting.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Beyond academics, I have practical experience in broadcast
+                            equipment maintenance, livestream production, customer
+                            service, and multimedia content creation. I enjoy learning
+                            new technologies and applying my knowledge to real-world
+                            tasks.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TECHNICAL SKILLS ===== -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">
+                    Technical <span class="accent">Skills</span>
+                </h2>
+
+                <p class="section-description">
+                    Skills developed through university coursework, laboratory
+                    exercises, assignments, and practical experience.
+                </p>
+
+                <div class="skills-grid">
+
+                    <article class="skill-card">
+                        <h3>Networking</h3>
+                        <p>
+                            Foundational knowledge of network configuration,
+                            connectivity, and communication systems.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">IP Addressing</span>
+                            <span class="tag">Subnetting</span>
+                            <span class="tag">Cisco Packet Tracer</span>
+                            <span class="tag">Network Troubleshooting</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Programming</h3>
+                        <p>
+                            Experience completing programming assignments and
+                            developing logical solutions to technical problems.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Programming Logic</span>
+                            <span class="tag">Problem Solving</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Database Management</h3>
+                        <p>
+                            Academic experience in structuring databases and
+                            working with data using SQL.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">Database Design</span>
+                            <span class="tag">Data Management</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Computer Support</h3>
+                        <p>
+                            Basic computer troubleshooting involving software,
+                            hardware, drivers, and connectivity issues.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">Windows</span>
+                            <span class="tag">Linux CLI</span>
+                            <span class="tag">PC Troubleshooting</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Broadcast Technology</h3>
+                        <p>
+                            Hands-on exposure to broadcast equipment, audiovisual
+                            signal connections, and live production workflows.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">HDMI / SDI</span>
+                            <span class="tag">vMix</span>
+                            <span class="tag">ATEM Mini Pro</span>
+                            <span class="tag">Audio Systems</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <h3>Digital Tools</h3>
+                        <p>
+                            Experience using productivity and creative tools for
+                            data organisation, content creation, and design.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="tag">Google Sheets</span>
+                            <span class="tag">AppSheet</span>
+                            <span class="tag">Canva</span>
+                            <span class="tag">CapCut</span>
+                            <span class="tag">Microsoft Excel</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EXPERIENCE ===== -->
+        <section id="experience">
+            <div class="container">
+                <h2 class="section-title">
+                    Work <span class="accent">Experience</span>
+                </h2>
+
+                <p class="section-description">
+                    My professional experiences and the skills I developed along the way.
+                </p>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <h3>Multimedia & Publicity Assistant</h3>
+                        <p class="date">August 2026 | Azzam Reezky Group</p>
+                        <p>
+                            Assisted with promotional materials such as jerseys,
+                            lanyards, cards, and banners. Supported photography,
+                            videography, and VLOG production using a Canon EOS 500D,
+                            iPhone, Canva, and CapCut.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Broadcast Equipment Maintenance Intern</h3>
+                        <p class="date">Six-month internship | RTM Kuching</p>
+                        <p>
+                            Gained practical exposure to broadcast equipment
+                            maintenance, HDMI and SDI connections, livestream
+                            production using vMix and ATEM Mini Pro, audio equipment,
+                            IP codecs, intercom systems, and master clock systems.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Kitchen Helper</h3>
+                        <p class="date">July 2025 – September 2025 | Classic Trias Enterprise</p>
+                        <p>
+                            Assisted with food preparation, kitchen cleanliness,
+                            food safety, and daily operations while working as part
+                            of a team.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Store Associate</h3>
+                        <p class="date">June 2024 – September 2024 | 7-Eleven</p>
+                        <p>
+                            Handled cashier operations, customer transactions,
+                            inventory organisation, and daily store responsibilities.
+                            Developed communication, teamwork, and time-management skills.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EDUCATION ===== -->
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title">
+                    My <span class="accent">Education</span>
+                </h2>
+
+                <p class="section-description">
+                    My academic background in computing and communication technology.
+                </p>
+
+                <div class="education-grid">
+
+                    <article class="education-card">
+                        <h3>Universiti Malaysia Sarawak (UNIMAS)</h3>
+                        <p>
+                            Bachelor of Computer Science (Network Computing with Honours)
+                        </p>
+                        <p>Current level: Year 3</p>
+                        <p>Field: Computer Science and Information Technology</p>
+                    </article>
+
+                    <article class="education-card">
+                        <h3>Politeknik Kuching Sarawak</h3>
+                        <p>
+                            Diploma in Electronic Engineering (Communication)
+                        </p>
+                        <p>
+                            Studied electronic systems, communication technology,
+                            and technical fundamentals.
+                        </p>
+                    </article>
+
+                    <article class="education-card">
+                        <h3>SM Teknik Sejingkat</h3>
+                        <p>Secondary Education | 2017 – 2021</p>
+                        <p>
+                            Studied technical subjects, including Electrical and
+                            Electronic Engineering, Additional Mathematics, and
+                            Engineering Drawing.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS ===== -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">
+                    Projects & <span class="accent">Interests</span>
+                </h2>
+
+                <p class="section-description">
+                    Examples of areas where I apply my technical knowledge and creativity.
+                </p>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <h3>Network Configuration Labs</h3>
+                        <p>
+                            Practised IP addressing, subnet masks, and basic network
+                            configuration using Cisco Packet Tracer as part of my
+                            computer networking studies.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Database & Programming Assignments</h3>
+                        <p>
+                            Completed academic work involving Java programming,
+                            logical problem-solving, SQL queries, and database design.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Membership Management System</h3>
+                        <p>
+                            Exploring a low-code membership management workflow using
+                            Tally, Google Sheets, and AppSheet to organise customer
+                            records, loyalty points, and voucher redemption.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Multimedia & Live Production</h3>
+                        <p>
+                            Worked with photography, video editing, livestream
+                            equipment, audiovisual signal connections, and
+                            promotional content for practical production activities.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CAREER GOALS ===== -->
+        <section id="goals">
+            <div class="container">
+                <h2 class="section-title">
+                    Career <span class="accent">Goals</span>
+                </h2>
+
+                <p class="section-description">
+                    What I am working towards as I continue developing my career.
+                </p>
+
+                <div class="goals-box">
+                    <ul>
+                        <li>
+                            Secure an industrial training placement in Kuching,
+                            Sarawak, starting in February 2027.
+                        </li>
+                        <li>
+                            Improve practical knowledge in computer networking,
+                            IT infrastructure, and technical support.
+                        </li>
+                        <li>
+                            Gain real-world experience in troubleshooting,
+                            network administration, and information technology.
+                        </li>
+                        <li>
+                            Strengthen my technical, communication, and
+                            problem-solving skills.
+                        </li>
+                        <li>
+                            Build a strong foundation for a future career in
+                            networking, IT operations, or infrastructure support.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section id="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="section-title">
+                        Let's <span class="accent">Connect</span>
+                    </h2>
+
+                    <p>
+                        I am looking forward to learning, collaborating, and gaining
+                        practical experience in the IT industry. If you have an
+                        internship opportunity or would like to connect professionally,
+                        feel free to reach out.
+                    </p>
+
+                    <!-- Replace the placeholder email with your actual email. -->
+                    <a
+                        href="mailto:your.email@example.com"
+                        class="button button-primary"
+                    >
+                        Email Me
+                    </a>
+
+                    <!-- Replace # with your actual LinkedIn profile URL. -->
+                    <a href="#"
+                       class="button"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>
+                &copy; <span id="year"></span> Eman Muz.
+                Built with HTML and CSS.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Automatically update the copyright year.
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
