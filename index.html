@@ -25,6 +25,74 @@
             scroll-behavior: smooth;
         }
 
+        html { scroll-padding-top: 90px; }
+
+        body { overflow-x: hidden; }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse at 15% 15%, rgba(200,173,131,.10), transparent 35%),
+                radial-gradient(ellipse at 85% 55%, rgba(115,92,65,.09), transparent 38%);
+            animation: atmosphere 14s ease-in-out infinite alternate;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 1001;
+            pointer-events: none;
+            opacity: .13;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+        }
+
+        @keyframes atmosphere { from { transform: scale(1); } to { transform: scale(1.12) translate3d(1.5%, -1%, 0); } }
+        @keyframes riseIn { from { opacity: 0; transform: translateY(32px); filter: blur(5px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+        @keyframes revealLine { from { width: 0; } to { width: 100%; } }
+        @keyframes floatPhoto { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+        @keyframes pulseRing { 0%,100% { box-shadow: 0 0 0 0 rgba(200,173,131,.18), 0 0 45px rgba(200,173,131,.06); } 50% { box-shadow: 0 0 0 12px rgba(200,173,131,0), 0 0 70px rgba(200,173,131,.14); } }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        ::selection { background: var(--accent); color: #17130e; }
+
+        .scroll-progress {
+            position: fixed; inset: 0 auto auto 0; height: 3px; width: 0;
+            background: linear-gradient(90deg, #9b7c53, #f2dfbd, #c8ad83);
+            z-index: 2000; box-shadow: 0 0 14px rgba(200,173,131,.6);
+        }
+
+        .cursor-glow {
+            position: fixed; width: 280px; height: 280px; border-radius: 50%;
+            pointer-events: none; z-index: -1; opacity: .15;
+            background: radial-gradient(circle, rgba(200,173,131,.28), transparent 68%);
+            transform: translate(-50%, -50%);
+        }
+
+        .eyebrow-dot {
+            display: inline-block; width: 7px; height: 7px; margin-right: 9px;
+            border-radius: 50%; background: #a6c9a0; box-shadow: 0 0 12px #a6c9a0;
+            animation: pulseRing 2.5s ease-in-out infinite;
+        }
+
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: .08s; }
+        .reveal-delay-2 { transition-delay: .16s; }
+        .reveal-delay-3 { transition-delay: .24s; }
+
+        .hero-content > * { animation: riseIn .8s both; }
+        .hero-content > *:nth-child(1) { animation-delay: .12s; }
+        .hero-content > *:nth-child(2) { animation-delay: .24s; }
+        .hero-content > *:nth-child(3) { animation-delay: .36s; }
+        .hero-content > *:nth-child(4) { animation-delay: .48s; }
+        .hero-content > *:nth-child(5) { animation-delay: .6s; }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: var(--bg);
@@ -81,10 +149,15 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(16, 16, 16, 0.96);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(12px);
+            background: rgba(16, 16, 16, 0.78);
+            border-bottom: 1px solid rgba(200,173,131,.18);
+            backdrop-filter: blur(18px);
+            transition: background .3s, box-shadow .3s;
         }
+        header.scrolled { background: rgba(16,16,16,.94); box-shadow: 0 12px 40px rgba(0,0,0,.22); }
+        nav a { position: relative; padding: 8px 0; }
+        nav a::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0; background: var(--accent); transition: width .3s; }
+        nav a:hover::after, nav a.active::after { width: 100%; }
 
         .navbar {
             min-height: 76px;
@@ -124,10 +197,26 @@
         /* HERO */
 
         #home {
-            min-height: 85vh;
+            min-height: 88vh;
             display: flex;
             align-items: center;
             padding: 70px 0;
+            position: relative;
+            isolation: isolate;
+        }
+        #home::before {
+            content: "AEMAN / PORTFOLIO";
+            position: absolute; right: -2vw; bottom: 8%;
+            font-size: clamp(42px, 10vw, 150px); font-weight: 900;
+            letter-spacing: -.08em; line-height: .9; white-space: nowrap;
+            color: rgba(245,241,233,.025); z-index: -1; pointer-events: none;
+        }
+        #home::after {
+            content: ""; position: absolute; width: 360px; height: 360px;
+            border: 1px solid rgba(200,173,131,.12); border-radius: 50%;
+            right: 7%; top: 15%; z-index: -1;
+            box-shadow: 0 0 0 35px rgba(200,173,131,.025), 0 0 0 75px rgba(200,173,131,.018);
+            animation: atmosphere 12s ease-in-out infinite alternate;
         }
 
         .hero-layout {
@@ -215,7 +304,15 @@
             border: 1px solid var(--accent);
             border-radius: 150px 150px 12px 12px;
             background: var(--surface);
+            position: relative;
+            animation: floatPhoto 6s ease-in-out infinite, pulseRing 5s ease-in-out infinite;
+            box-shadow: 0 25px 90px rgba(0,0,0,.38);
+            transition: border-radius .5s, transform .5s;
         }
+        .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(145deg, rgba(200,173,131,.2), transparent 45%, rgba(0,0,0,.22)); pointer-events: none; }
+        .hero-photo:hover { border-radius: 130px 130px 24px 24px; }
+        .hero-photo img { transition: transform .8s cubic-bezier(.2,.7,.2,1), filter .5s; filter: saturate(.8); }
+        .hero-photo:hover img { transform: scale(1.07); filter: saturate(1.05); }
 
         .hero-photo img {
             display: block;
@@ -285,11 +382,27 @@
             transition: transform 0.2s, border-color 0.2s;
         }
 
-        .skill-card:hover,
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
+        .skill-card, .project-card, .cert-item, .info-card, .career-box, .contact-link {
+            position: relative; overflow: hidden;
         }
+        .skill-card::before, .project-card::before, .cert-item::before, .contact-link::before {
+            content: ""; position: absolute; inset: 0 auto auto 0; width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            transform: translateX(-100%); transition: transform .65s ease;
+        }
+        .skill-card:hover::before, .project-card:hover::before, .cert-item:hover::before, .contact-link:hover::before { transform: translateX(100%); }
+        .skill-card, .project-card { transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s, box-shadow .35s; }
+        .skill-card:hover, .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 22px 45px rgba(0,0,0,.24);
+        }
+        .skill-card:nth-child(3n+1) { background: linear-gradient(145deg, rgba(200,173,131,.055), var(--surface) 55%); }
+        .project-card { min-height: 245px; }
+        .project-card h3 { transition: color .25s; }
+        .project-card:hover h3 { color: var(--accent); }
+        .tag { transition: color .25s, border-color .25s, background .25s; }
+        .skill-card:hover .tag, .project-card:hover .tag { border-color: rgba(200,173,131,.4); color: var(--text); }
 
         .skill-number {
             color: var(--accent);
@@ -349,7 +462,12 @@
             top: 8px;
             background: var(--accent);
             border-radius: 50%;
+            box-shadow: 0 0 0 5px rgba(200,173,131,.08), 0 0 18px rgba(200,173,131,.3);
+            transition: transform .3s;
         }
+        .timeline-item:hover::before { transform: scale(1.45); }
+        .timeline { position: relative; }
+        .timeline::before { content: ""; position: absolute; left: -1px; top: 0; width: 1px; height: var(--timeline-progress, 0%); background: var(--accent); box-shadow: 0 0 12px rgba(200,173,131,.5); }
 
         .timeline-date {
             color: var(--accent);
@@ -502,6 +620,28 @@
 
         /* FOOTER */
 
+        .marquee {
+            overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            padding: 17px 0; color: var(--accent); font-size: 11px; letter-spacing: 3px;
+            text-transform: uppercase; white-space: nowrap;
+            background: rgba(200,173,131,.025);
+        }
+        .marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+        .marquee-track span { padding-right: 32px; }
+        .marquee:hover .marquee-track { animation-play-state: paused; }
+
+        .back-to-top {
+            position: fixed; right: 24px; bottom: 24px; z-index: 999;
+            width: 46px; height: 46px; display: grid; place-items: center;
+            border: 1px solid rgba(200,173,131,.55); border-radius: 50%;
+            background: rgba(25,25,25,.85); color: var(--accent); font-size: 20px;
+            opacity: 0; transform: translateY(12px); pointer-events: none;
+            transition: opacity .3s, transform .3s, background .3s;
+            backdrop-filter: blur(12px);
+        }
+        .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        .back-to-top:hover { background: var(--accent); color: #17130e; }
+
         footer {
             padding: 28px 0;
             border-top: 1px solid var(--border);
@@ -589,18 +729,28 @@
             }
         }
 
+        @media (max-width: 650px) {
+            #home::after { width: 210px; height: 210px; right: -70px; top: 6%; }
+            .cursor-glow { display: none; }
+            .back-to-top { right: 15px; bottom: 15px; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
+            *, *::before, *::after {
                 scroll-behavior: auto !important;
-                transition: none !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
             }
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
 </head>
 
 <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <a href="#home" class="back-to-top" aria-label="Back to top">↑</a>
 
     <!-- NAVIGATION -->
     <header>
@@ -627,7 +777,7 @@
 
                 <div class="hero-content">
                     <div class="hero-label">
-                        Computer Science · Network Computing
+                        <span class="eyebrow-dot"></span> Computer Science · Network Computing
                     </div>
 
                     <h1>
@@ -668,6 +818,13 @@
 
             </div>
         </section>
+
+        <div class="marquee" aria-label="Areas of focus">
+            <div class="marquee-track">
+                <span>NETWORKING ✳ TELECOMMUNICATIONS ✳ DIGITAL SYSTEMS ✳ BROADCAST TECHNOLOGY ✳ IT INFRASTRUCTURE ✳</span>
+                <span aria-hidden="true">NETWORKING ✳ TELECOMMUNICATIONS ✳ DIGITAL SYSTEMS ✳ BROADCAST TECHNOLOGY ✳ IT INFRASTRUCTURE ✳</span>
+            </div>
+        </div>
 
         <!-- ABOUT -->
         <section id="about" class="section">
@@ -1318,8 +1475,89 @@
     </footer>
 
     <script>
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Reveal content as it enters the viewport.
+        const revealTargets = document.querySelectorAll(
+            '.section-heading, .about-text, .info-card, .skill-card, .timeline-item, .cert-item, .project-card, .career-box, .contact-copy, .contact-link'
+        );
+        revealTargets.forEach((el, index) => {
+            el.classList.add('reveal');
+            if (index % 3 === 1) el.classList.add('reveal-delay-1');
+            if (index % 3 === 2) el.classList.add('reveal-delay-2');
+        });
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+            revealTargets.forEach(el => observer.observe(el));
+        } else {
+            revealTargets.forEach(el => el.classList.add('is-visible'));
+        }
+
+        // Scroll progress, header treatment, timeline accent and back-to-top.
+        const progress = document.querySelector('.scroll-progress');
+        const header = document.querySelector('header');
+        const topButton = document.querySelector('.back-to-top');
+        const updateScroll = () => {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+            progress.style.width = pct + '%';
+            header.classList.toggle('scrolled', window.scrollY > 20);
+            topButton.classList.toggle('visible', window.scrollY > 500);
+            document.querySelectorAll('.timeline').forEach(timeline => {
+                const rect = timeline.getBoundingClientRect();
+                const visible = Math.max(0, Math.min(rect.height, window.innerHeight * .72 - rect.top));
+                timeline.style.setProperty('--timeline-progress', (visible / rect.height * 100) + '%');
+            });
+        };
+        window.addEventListener('scroll', updateScroll, { passive: true });
+        updateScroll();
+
+        // Highlight the navigation item for the current section.
+        const navLinks = [...document.querySelectorAll('nav a')];
+        const sections = [...document.querySelectorAll('main section[id]')];
+        if ('IntersectionObserver' in window) {
+            const sectionObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => link.classList.toggle(
+                            'active', link.getAttribute('href') === '#' + entry.target.id
+                        ));
+                    }
+                });
+            }, { rootMargin: '-30% 0px -60% 0px' });
+            sections.forEach(section => sectionObserver.observe(section));
+        }
+
+        // Soft cursor spotlight on desktop.
+        const glow = document.querySelector('.cursor-glow');
+        window.addEventListener('pointermove', event => {
+            glow.style.left = event.clientX + 'px';
+            glow.style.top = event.clientY + 'px';
+        }, { passive: true });
+
+        // Subtle magnetic movement on hero buttons.
+        if (window.matchMedia('(pointer: fine)').matches &&
+            !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('.hero-buttons .button').forEach(button => {
+                button.addEventListener('pointermove', event => {
+                    const rect = button.getBoundingClientRect();
+                    const x = event.clientX - rect.left - rect.width / 2;
+                    const y = event.clientY - rect.top - rect.height / 2;
+                    button.style.transform = `translate(${x * .07}px, ${y * .12}px)`;
+                });
+                button.addEventListener('pointerleave', () => {
+                    button.style.transform = '';
+                });
+            });
+        }
     </script>
 
 </body>
